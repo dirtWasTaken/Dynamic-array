@@ -16,17 +16,32 @@ public:
 
 	void dynamic()
 	{
-		T_ arrayValue = 10;
-
-		int myArray[arrayValue];
-
-		for (size_t i = 0; i < arrayValue; i++)
+		std::cout << "Enter the capacity of your array: ";
+		std::cin >> capacity;
+		std::cout << "\n";
+		Arrayptr = new int[capacity];
+		for (size_t i = 0; i < capacity; i++)
 		{
-			myArray[i] = rand() % 200 + 1;
-			std::cout << myArray[i] << "\n";
+			Arrayptr[i] = rand() % 100 + 1;
+			std::cout << Arrayptr[i] << "  ";
 		}
 	}
 
+	int set(int index, int value)
+	{
+		while (Arrayptr != nullptr)
+		{
+		if (index >= capacity)
+			{
+				
+			}
+		}
+	}
+
+private:
+	T_ * Arrayptr = nullptr;
+
+	int capacity = 0;
 
 };
 

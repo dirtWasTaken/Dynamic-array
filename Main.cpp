@@ -3,7 +3,7 @@
 
 int main()
 {
-	DynamicArray<const unsigned int> dyn;
+	DynamicArray<unsigned int> dyn;
 
 	dyn.dynamic();
 
