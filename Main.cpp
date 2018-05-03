@@ -7,9 +7,13 @@ int main()
 
 	dyn.dynamic();
 
-	dyn.set(0, 0);
+	int valuePass = 0;
+	int indexPass = 0;
 
-	dyn.arrayAllocation();
+	dyn.set(valuePass, indexPass);
+	
+
+	dyn.arrayAllocation(valuePass, indexPass);
 
 	system("pause");
 }

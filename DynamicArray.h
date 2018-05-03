@@ -22,12 +22,12 @@ public:
 		Arrayptr = new T_ [capacity];
 		for (size_t i = 0; i < capacity; i++)
 		{
-			Arrayptr[i] = rand() % 100 + 1;
+			Arrayptr[i] = rand() % 100000 + 1;
 			std::cout << Arrayptr[i] << "  ";
 		}
 	}
 
-	static int set(T_ value, T_ index)
+	int set(T_ value, T_ index)
 	{
 		while (index == 0)
 		{
@@ -40,7 +40,8 @@ public:
 		}
 
 	}
-	int arrayAllocation()
+
+	int arrayAllocation(T_ value, T_ index)
 	{
 		if (index >= capacity)
 		{
@@ -59,11 +60,15 @@ public:
 					std::cout << newArrayPtr[i] << "  ";
 				}
 			}
+			return value;
+			return index;
 		}
 
 		else if (index < capacity)
 		{
 			Arrayptr[capacity] = value;
+			return value;
+			return index;
 		}
 	}
 
