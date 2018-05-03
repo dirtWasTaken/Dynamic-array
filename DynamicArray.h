@@ -27,15 +27,21 @@ public:
 		}
 	}
 
-	int set(T_ index, T_ value)
+	static int set(T_ value, T_ index)
 	{
+		while (index == 0)
+		{
 			std::cout << "What value do you want in your array? ";
 			std::cin >> value;
-			return value;
 			std::cout << "\n\nWhere do you want this in your array? ";
 			std::cin >> index;
+			return value;
 			return index;
+		}
 
+	}
+	int arrayAllocation()
+	{
 		if (index >= capacity)
 		{
 			delete Arrayptr;
@@ -45,14 +51,16 @@ public:
 				if (i == index)
 				{
 					newArrayPtr[index] = value;
+					std::cout << newArrayPtr[index];
 				}
 				else
 				{
-				newArrayPtr[i] = rand
-				std::cout << "";
+					newArrayPtr[i] = rand() & 100 + 1;
+					std::cout << newArrayPtr[i] << "  ";
 				}
 			}
 		}
+
 		else if (index < capacity)
 		{
 			Arrayptr[capacity] = value;
