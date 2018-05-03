@@ -7,6 +7,7 @@
 
 template<typename T_>
 class DynamicArray
+
 {
 public:
 
@@ -22,62 +23,74 @@ public:
 		Arrayptr = new T_ [capacity];
 		for (size_t i = 0; i < capacity; i++)
 		{
-			Arrayptr[i] = rand() % 100000 + 1;
+			Arrayptr[i] = rand() % 10 + 1;
 			std::cout << Arrayptr[i] << "  ";
 		}
 	}
 
 	int set(T_ value, T_ index)
 	{
-		while (index == 0)
+		while (arrayTest == false)
 		{
-			std::cout << "What value do you want in your array? ";
+			std::cout << "\n\nWhat value do you want in your array? ";
 			std::cin >> value;
 			std::cout << "\n\nWhere do you want this in your array? ";
 			std::cin >> index;
-			return value;
-			return index;
-		}
+			int indexPass = index;
+			int valuePass = value;
 
-	}
-
-	int arrayAllocation(T_ value, T_ index)
-	{
-		if (index >= capacity)
-		{
-			delete Arrayptr;
-			newArrayPtr = new T_ [index];
-			for (size_t i = 0; i < index; i++)
+			if (indexPass >= capacity)
 			{
-				if (i == index)
+				delete Arrayptr;
+				newArrayPtr = new T_[indexPass];
+				for (size_t i = 0; i < indexPass; i++)
 				{
-					newArrayPtr[index] = value;
-					std::cout << newArrayPtr[index];
-				}
-				else
-				{
-					newArrayPtr[i] = rand() & 100 + 1;
-					std::cout << newArrayPtr[i] << "  ";
+					if (i == indexPass - 1)
+					{
+						newArrayPtr[i] = valuePass;
+						std::cout << " Here is your value->";
+						std::cout << newArrayPtr[i];
+					}
+					else
+					{
+						newArrayPtr[i] = rand() % 10 + 1;
+						std::cout << newArrayPtr[i] << "  ";
+					}
+					arrayTest = true;
 				}
 			}
-			return value;
-			return index;
-		}
 
-		else if (index < capacity)
-		{
-			Arrayptr[capacity] = value;
-			return value;
-			return index;
+			else if (indexPass < capacity)
+			{
+				for (size_t i = 0; i < capacity; i++)
+				{
+					if (i == indexPass - 1)
+					{
+					Arrayptr[i] = indexPass - 1;
+					std::cout << "->" << valuePass << "<-  ";
+					}
+					std::cout << Arrayptr[i] << "  ";
+					arrayTest = true;
+				}
+			}
 		}
+		return value;
+		return index;
 	}
 
+
 private:
+	T_ capacity = 0;
+
+	T_ valuePass;
+
+	T_ indexPass;
+
 	T_ * newArrayPtr = nullptr;
 
 	T_ * Arrayptr = nullptr;
 
-	int capacity = 0;
-
+	bool arrayTest = false;
 };
+
 

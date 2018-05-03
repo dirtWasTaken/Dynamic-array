@@ -3,17 +3,11 @@
 
 int main()
 {
-	DynamicArray<int> dyn;
+	DynamicArray<unsigned int> dyn;
 
 	dyn.dynamic();
 
-	int valuePass = 0;
-	int indexPass = 0;
-
-	dyn.set(valuePass, indexPass);
-	
-
-	dyn.arrayAllocation(valuePass, indexPass);
+	dyn.set(0, 0);
 
 	system("pause");
 }
