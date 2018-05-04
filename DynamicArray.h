@@ -41,7 +41,6 @@ public:
 
 			if (indexPass >= capacity)
 			{
-				delete Arrayptr;
 				newArrayPtr = new T_[indexPass];
 				for (size_t i = 0; i < indexPass; i++)
 				{
@@ -53,7 +52,7 @@ public:
 					}
 					else
 					{
-						newArrayPtr[i] = rand() % 10 + 1;
+						newArrayPtr[i] = Arrayptr[i];
 						std::cout << newArrayPtr[i] << "  ";
 					}
 					arrayTest = true;
@@ -66,7 +65,6 @@ public:
 				{
 					if (i == indexPass - 1)
 					{
-					Arrayptr[i] = indexPass - 1;
 					std::cout << "->" << valuePass << "<-  ";
 					}
 					std::cout << Arrayptr[i] << "  ";
@@ -74,6 +72,7 @@ public:
 				}
 			}
 		}
+		delete Arrayptr;
 		return value;
 		return index;
 	}
