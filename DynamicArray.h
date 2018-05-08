@@ -5,6 +5,10 @@
 #include <algorithm>
 #include <cstdlib>
 
+
+/*************************************************************************************
+Templated 
+**************************************************************************************/
 template<typename T_>
 class DynamicArray
 
@@ -15,6 +19,10 @@ public:
 
 	virtual ~DynamicArray () {}
 
+	/*************************************************************************************
+	the initial array with a user defined size, this is saved and used to insert a user
+	defined value anywhere in the array 
+	**************************************************************************************/
 	void dynamic()
 	{
 		std::cout << "Enter the capacity of your array: ";
@@ -28,6 +36,9 @@ public:
 		}
 	}
 
+	/*************************************************************************************
+	this function takes to user inputs, the value they want in the array and which element they want it in
+	**************************************************************************************/
 	int set(T_ value, T_ index)
 	{
 		while (arrayTest == false)
@@ -73,6 +84,7 @@ public:
 			}
 		}
 		delete Arrayptr;
+		delete newArrayPtr;
 		return value;
 		return index;
 	}
